@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .button{
+        @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
+    }
+    .hi{
+        background: #667ed0;
+        background: -webkit-linear-gradient(to bottom, #b48dfe, #667ed0);  
+        background: linear-gradient(to bottom, #b48dfe, #667ed0); 
+    }
+    .backgroung{
+        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+        width: 100vw;
+        height: 100vh;
+    }
+}
