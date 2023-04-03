@@ -31,7 +31,7 @@ export default function Chat() {
 
     // Connect to Socket.io
     useEffect(() => {
-        socket.current = io("wss://cofeedbe.herokuapp.com");
+        socket.current = io(process.env.REACT_APP_SOCKET);
         socket.current.emit("new-user-add", user._id);
         socket.current.on("get-users", (users) => {
         setOnlineUsers(users);
@@ -66,8 +66,8 @@ export default function Chat() {
                         <div className="flex items-center h-20 pl-5 text-gray-400 text-3xl font-semibold rounded-tl-xl"> Chat </div>
                         <input type="text" placeholder="FIND A USER" className=" border-none outline-none px-5 py-3 text-xs h-12 shadow-lg bg-white text-gray-500 placeholder-gray-500  rounded-full w-5/6   " />
                         <div className="flex flex-col space-y-3">
-                            {chats.map((chat) => (
-                                <div onClick={() => setCurrentChat(chat) } >
+                            {chats.map((chat,index) => (
+                                <div onClick={() => setCurrentChat(chat) } key={index}>
                                     <ChatList data={chat} currentUser={user._id} online={checkOnlineStatus(chat)} />
                                 </div>
                             ))}

@@ -23,8 +23,8 @@ export default function Suggestions({location}) {
                 <h3 className="" >Suggestions for you</h3>
                 {!location ? ( <span className="font-medium text-purple-500  cursor-pointer self-center" onClick={() => setModalOpened(true)}>See All</span> ) : ("")}
             </div>
-            {persons.map((person, id) => {
-                if (person._id !== user._id) return <UserCard person={person} key={id} />;
+            {persons.map((person, index) => {
+                if (person._id !== user._id) return <UserCard person={person} key={index} />;
                 return <></>
             })}
             <SuggestionModal modalOpened={modalOpened} setModalOpened={setModalOpened} />  

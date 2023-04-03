@@ -91,8 +91,8 @@ export default function ChatBox( { chat, currentUser, setSendMessage,  receivedM
             </div>
             {/* chat-body */}
             <div className="flex flex-col overflow-y-scroll h-[555px] scrollbar-hide pl-5 pr-5 py-3 bg-slate-100 rounded-[1.5rem]">
-                {messages.map((message) => (
-                    <div className={`flex flex-col mb-4 ${message.senderId === currentUser ? 'self-end items-end' : ''}` }>
+                {messages.map((message,index) => (
+                    <div className={`flex flex-col mb-4 ${message.senderId === currentUser ? 'self-end items-end' : ''}` } key={{index}}>
                         <div ref={scroll} className= {`p-3 w-fit break-all max-w-2xl   mb-1 rounded-2xl ${message.senderId === currentUser ? 'bg-indigo-400 rounded-br-none text-white ' : ' bg-[#d1def8] text-gray-700 rounded-bl-none'} `} >
                             {message.text}
                         </div>
