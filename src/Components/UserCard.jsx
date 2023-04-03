@@ -14,7 +14,6 @@ export default function UserCard({person}) {
     const handleFollow = () => {
         following ? dispatch(unfollowUser(person._id, user)) : dispatch(followUser(person._id, user));
         setFollowing((prev) => !prev);
-        window.location.reload();
     };
     return(
         <div className="flex justify-between items-center mb-5 ">
